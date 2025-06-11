@@ -1,5 +1,7 @@
 package net.chaosacquired.brewteaful;
 
+import net.chaosacquired.brewteaful.item.ModItems;
+import net.minecraft.world.item.CreativeModeTabs;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -36,7 +38,7 @@ public class BrewTeaful {
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
-
+            ModItems.register(modEventBus);
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
@@ -49,6 +51,14 @@ public class BrewTeaful {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.MYTHRIL_INGOT);
+            event.accept(ModItems.RAW_MYTHRIL);
+            event.accept(ModItems.RAW_SILVER);
+            event.accept(ModItems.SILVER_INGOT);
+            event.accept(ModItems.TEA_LEAF);
+            event.accept(ModItems.TEA_LEAF_BLACK);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
