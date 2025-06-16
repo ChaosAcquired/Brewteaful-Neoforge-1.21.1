@@ -1,5 +1,6 @@
 package net.chaosacquired.brewteaful;
 
+import net.chaosacquired.brewteaful.block.ModBlocks;
 import net.chaosacquired.brewteaful.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import org.slf4j.Logger;
@@ -39,6 +40,7 @@ public class BrewTeaful {
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
             ModItems.register(modEventBus);
+            ModBlocks.register(modEventBus);
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
@@ -58,6 +60,11 @@ public class BrewTeaful {
             event.accept(ModItems.SILVER_INGOT);
             event.accept(ModItems.TEA_LEAF);
             event.accept(ModItems.TEA_LEAF_BLACK);
+        }
+
+        if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+            event.accept(ModBlocks.MYTHRIL_BLOCK);
+            event.accept(ModBlocks.STONE_TABLE);
         }
     }
 

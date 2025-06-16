@@ -4,5 +4,8 @@
   "item.brewteaful.raw_silver": "Raw Silver",
   "item.brewteaful.silver_ingot": "Silver Ingot",
   "item.brewteaful.tea_leaf": "Tea Leaf",
-  "item.brewteaful.tea_leaf_black": "Black Tea Leaf"
+  "item.brewteaful.tea_leaf_black": "Black Tea Leaf",
+
+  "block.brewteaful.mythril_block": "Block of Mythril",
+  "block,brewteaful.stone_table": "Stone Table"
 }
